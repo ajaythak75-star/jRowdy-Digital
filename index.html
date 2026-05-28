@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge the Digital Gap | Your Digital Growth Partner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple-900: #26215C;
+            --purple-600: #534AB7;
+            --purple-400: #7F77DD;
+            --purple-200: #AFA9EC;
+            --purple-50: #EEEDFE;
+            
+            --amber-900: #412402;
+            --amber-600: #854F0B;
+            --amber-400: #BA7517;
+            --amber-200: #FAC775;
+            
+            --teal-900: #04342C;
+            --teal-600: #0F6E56;
+            --teal-400: #1D9E75;
+            --teal-200: #9FE1CB;
+            --teal-50: #E1F5EE;
+            
+            --coral-600: #993C1D;
+            --coral-400: #D85A30;
+            
+            --gray-900: #2C2C2A;
+            --gray-600: #5F5E5A;
+            --gray-400: #888780;
+            --gray-200: #D3D1C7;
+            --gray-50: #F1EFE8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-600) 50%, var(--teal-600) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--purple-400);
+            border-radius: 50%;
+            top: -200px;
+            right: -150px;
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--teal-400);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -100px;
+            opacity: 0.3;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 .highlight {
+            color: var(--amber-200);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+        }
+
+        .hero p .emphasis {
+            color: var(--amber-200);
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--amber-400);
+            color: white;
+            padding: 1.2rem 2.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(186, 117, 23, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: var(--amber-600);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(186, 117, 23, 0.5);
+        }
+
+        .icon-badge {
+            font-size: 1.3rem;
+        }
+
+        .services {
+            padding: 6rem 1.5rem;
+            background: linear-gradient(180deg, #ffffff 0%, var(--gray-50) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--purple-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 60px rgba(83, 74, 183, 0.2);
+            border-color: var(--purple-200);
+        }
+
+        .service-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .service-card:nth-child(1) .service-icon {
+            background: linear-gradient(135deg, var(--purple-400), var(--purple-600));
+            color: white;
+            box-shadow: 0 8px 24px rgba(127, 119, 221, 0.3);
+        }
+
+        .service-card:nth-child(2) .service-icon {
+            background: linear-gradient(135deg, var(--teal-400), var(--teal-600));
+            color: white;
+            box-shadow: 0 8px 24px rgba(29, 158, 117, 0.3);
+        }
+
+        .service-card:nth-child(3) .service-icon {
+            background: linear-gradient(135deg, var(--amber-400), var(--amber-600));
+            color: white;
+            box-shadow: 0 8px 24px rgba(186, 117, 23, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--purple-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .bridge-section {
+            padding: 5rem 1.5rem;
+            background: linear-gradient(135deg, var(--purple-50) 0%, var(--teal-50) 100%);
+            text-align: center;
+        }
+
+        .bridge-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bridge-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--purple-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .bridge-section p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--purple-400), var(--teal-400));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--purple-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-600);
+        }
+
+        .cta-section {
+            padding: 5rem 1.5rem;
+            background: var(--purple-900);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .contact-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .contact-button.primary {
+            background: #25D366;
+            border-color: #25D366;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-button.primary:hover {
+            background: #20bd5a;
+            border-color: #20bd5a;
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-button.email {
+            background: var(--purple-600);
+            border-color: var(--purple-600);
+            box-shadow: 0 8px 24px rgba(83, 74, 183, 0.3);
+        }
+
+        .contact-button.email:hover {
+            background: var(--purple-900);
+            border-color: var(--purple-900);
+            box-shadow: 0 12px 32px rgba(83, 74, 183, 0.4);
+        }
+
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray-400);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 0 0 15px rgba(37, 211, 102, 0.1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Is your business <span class="highlight">missing out on sales?</span>
+                </h1>
+                <p>
+                    In today's world, if you aren't online, you're <span class="emphasis">invisible.</span>
+                </p>
+                <a href="#contact" class="cta-button">
+                    <i class="ti ti-rocket icon-badge"></i>
+                    Get your free quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>We help small & medium businesses bridge that gap</h2>
+                <p class="subtitle">Comprehensive digital solutions tailored to your needs</p>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ti ti-browser"></i>
+                    </div>
+                    <h3>Custom webpages</h3>
+                    <p>Show off your brand with a professionally designed website that captures your unique identity and attracts customers 24/7.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ti ti-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce sites</h3>
+                    <p>Sell 24/7 with automated checkouts. Reach customers everywhere and grow your revenue with a seamless online store.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ti ti-headset"></i>
+                    </div>
+                    <h3>Consultation & support</h3>
+                    <p>Expert guidance to navigate the digital landscape. From strategy to implementation, we're here every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bridge-section">
+        <div class="container">
+            <div class="bridge-content">
+                <h2>Your digital growth bridge</h2>
+                <p>We handle the tech so you can focus on growing your business. Transform your local shop into a digital powerhouse.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Your store open</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Customized</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Growth potential</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Reach out today for a quote!</h2>
+            <p>Let's discuss how we can help transform your business digitally</p>
+
+            <div class="contact-options">
+                <a href="https://wa.me/9987987387?text=Hi!%20I'd%20like%20to%20get%20a%20quote%20for%20my%20business" class="contact-button primary">
+                    <i class="ti ti-brand-whatsapp"></i>
+                    WhatsApp us
+                </a>
+                <a href="mailto:ajaykumar91@gmail.com" class="contact-button email">
+                    <i class="ti ti-mail"></i>
+                    Email us
+                </a>
+                <a href="#schedule" class="contact-button">
+                    <i class="ti ti-calendar"></i>
+                    Schedule consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/9987987387?text=Hi!%20I'd%20like%20to%20get%20a%20quote%20for%20my%20business" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="ti ti-brand-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Your Digital Growth Partner. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
